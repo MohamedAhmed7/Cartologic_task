@@ -1,6 +1,13 @@
-from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
 
+from rest_framework import generics
+from .serializer import ShopSerializer 
+from .models import Shop
+
+# Create your views here.
 def index(request):
     return HttpResponse("hello there")
+
+class ShopView(generics.ListAPIView):
+    queryset = Shop.objects.all()
+    serializer_class = ShopSerializer

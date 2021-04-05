@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.gis",  # enable geodjango
     'api.apps.ApiConfig',
     'rest_framework'
 ]
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'cartologic_task.wsgi.application'
 
 DATABASES = {
    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        "ENGINE": "django.contrib.gis.db.backends.postgis",
         'NAME': 'mydb',
         'USER': 'myuser',
         'PASSWORD': 'testing321',
