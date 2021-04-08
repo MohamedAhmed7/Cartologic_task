@@ -8,6 +8,6 @@ from .models import Shop
 def index(request):
     return HttpResponse("hello there")
 
-class ShopView(generics.ListAPIView):
+class ShopView(generics.ListCreateAPIView):
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer
