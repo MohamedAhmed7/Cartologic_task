@@ -16,7 +16,15 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      
     ],
+    
+  },
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+  },
+  module: {
+    rules: [{ test: /\.txt$/, use: 'raw-loader' }],
   },
   optimization: {
     minimize: true,
