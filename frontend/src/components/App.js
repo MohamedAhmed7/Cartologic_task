@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Test from './test';
+import Map from './Map';
 
 export default class App extends Component {
     constructor(props){
@@ -11,7 +11,7 @@ export default class App extends Component {
         return (
         <div>
             <h1>Test React Code</h1>
-            <Test />
+            <Map />
         </div>);
     }
 }   
