@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 
@@ -8,7 +8,11 @@ export default  class Map extends Component {
         super(props);
         this.state = {
             isDataLoaded: false,
-            data:[]
+            data:[],
+            center:{
+                lng:30.0,
+                lat:30.0
+            }
         }
     }
     
@@ -21,25 +25,37 @@ export default  class Map extends Component {
                 }else{
                     return response.json()
                     console.log(response.json);
+                    
+
                 }
             } ).then((data) => {
-                console.log(data);
+                if(!data){
+                    console.log('no shops');
+                }
+                //console.log(data);
+                console.log('len');
+
+
                 this.setState({
                     data,
                     isDataLoaded:true
                 })
-            
+
             })
         }, 1000);
         
     }
     render(){
-    
+        const position = [this.state.center.lng, this.state.center.lat];
+
         return(
             <div>
            
-            {!this.state.isDataLoaded ? <div>Loading...</div> :
-            <MapContainer center={[51.0, -0.9]} zoom={2} scrollWheelZoom={true}>
+            {!this.state.isDataLoaded ?
+            
+            <div>Loading...</div> :
+          
+            <MapContainer center={position} zoom={2} scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -52,9 +68,8 @@ export default  class Map extends Component {
                 </Popup>
             </Marker>
             ))}
-            
-            
             </MapContainer>
+  
             }
             
             </div>

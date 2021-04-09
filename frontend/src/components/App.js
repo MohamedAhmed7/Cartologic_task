@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+
 import Map from './Map';
+import Home from './Home';
 
 export default class App extends Component {
     constructor(props){
@@ -10,8 +13,15 @@ export default class App extends Component {
     render() {
         return (
         <div>
-            <h1>Test React Code</h1>
-            <Map />
+            
+            <BrowserRouter>
+                <div>
+                    <Switch>
+                        <Route exact path='/' component={Home}></Route>
+                        <Route path='/shops' component={Map}></Route>
+                    </Switch>
+                </div>
+            </BrowserRouter>
         </div>);
     }
 }   
