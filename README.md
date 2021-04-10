@@ -25,15 +25,6 @@ $ git clone https://github.com/MohamedAhmed7/Cartologic_task.git
 $ cd Cartologic_task
 ```
 
-
-Create a virtual environment to install dependencies in and activate it:
-
-Then install the dependencies:
-
-```sh
-(env)$ pip install -r requirements.txt
-```
-
 Run this App using Docker: 
 ```sh
 docker-compose up -d
