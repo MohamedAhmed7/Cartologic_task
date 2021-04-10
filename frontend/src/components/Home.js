@@ -13,7 +13,7 @@ export default  class Map extends Component {
                     <button>Shops</button>
                 </Link>
                 <h4>Access the Api from &nbsp;  
-                  <a href='http://localhost:8000/api'>API </a>
+                  <a href='http://localhost:8000/api/api_overview'>API </a>
                 </h4>
                 <h4>Access the Admin Panel from &nbsp;  
                   <a href='http://localhost:8000/admin'>Admin </a>

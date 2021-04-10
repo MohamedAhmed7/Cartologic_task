@@ -1,22 +1,26 @@
 from django.http import HttpResponse
-
+from rest_framework.decorators import api_view
 from rest_framework import generics
+from rest_framework.response import Response
 from .serializer import ShopSerializer 
 from .models import Shop
-from django.contrib.gis.db.models.functions import Distance
 
 # Create your views here.
+@api_view(['GET'])
 def index(request):
-    return HttpResponse("hello there")
+    api_urls = {
+		'list all shops':'/shops',
+		'update or delete shop':'/shop/<int:shop_id>',
+		
+		}
+    return Response(api_urls)
 
 class ShopView(generics.ListCreateAPIView):
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer
 
-'''
-class test(generics.ListAPIView):
-    queryset = Shop.objects.annotate(
-        distance=Distance("l", lng,lat)
-    ).order_by("distance")[0:2]
+
+class updateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Shop.objects.all()
+    lookup_url_kwarg = 'shop_id'
     serializer_class = ShopSerializer
-'''
