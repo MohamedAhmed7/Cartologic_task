@@ -12,6 +12,15 @@ export default  class Map extends Component {
                 <Link to='/shops'>
                     <button>Shops</button>
                 </Link>
+                <h4>Access the Api from &nbsp;  
+                  <a href='http://localhost:8000/api'>API </a>
+                </h4>
+                <h4>Access the Admin Panel from &nbsp;  
+                  <a href='http://localhost:8000/admin'>Admin </a>
+                </h4>
+                <h4>Hint: use these credentials to login as test user </h4>
+                <h4>username: test</h4>
+                <h4>pass: testing321</h4>
             </div>
         )
     }
