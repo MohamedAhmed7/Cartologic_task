@@ -7,7 +7,8 @@ export default  class Map extends Component {
     
         return(
             <div>
-                <h2>Home Componenet</h2>
+                <h2>CartoLogicTask</h2>
+                <h3>Click on the shops button down there to list all shops on the backend</h3>
                 <Link to='/shops'>
                     <button>Shops</button>
                 </Link>

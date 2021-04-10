@@ -32,6 +32,20 @@ services:
       networks:
          - hospital-api
 
+   frontend:
+       build:
+         context: ./frontend
+         dockerfile: Dockerfile.dev
+       container_name: app_frontend
+       volumes: 
+          - /app/node_modules
+          - ./frontend:/app
+       depends_on: 
+          - api
+       networks:
+          - hospital-api
+       ports:
+          - 3000:3000
 
 networks:
    hospital-api:
