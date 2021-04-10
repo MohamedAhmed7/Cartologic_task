@@ -11,21 +11,25 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env= environ.Env(DEBUG=(bool, False))
 
+environ.Env.read_env(env_file='.env')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'oz!%1-&de&+x#r#s_#yy4mpuxlo&bzr#af4%ul$my1c5f&x0$@'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
+
 
 
 # Application definition
@@ -81,11 +85,11 @@ WSGI_APPLICATION = 'cartologic_task.wsgi.application'
 DATABASES = {
    'default': {
         "ENGINE": "django.contrib.gis.db.backends.postgis",
-        'NAME': 'mydb',
-        'USER': 'myuser',
-        'PASSWORD': 'testing321',
-        'HOST': 'localhost',
-        'PORT': '',
+        "NAME": env("POSTGRES_DBNAME"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASS"),
+        "HOST": env("PG_HOST"),
+        "PORT": env("PG_PORT"),
     }
 }
 
