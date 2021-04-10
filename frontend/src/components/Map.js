@@ -11,7 +11,7 @@ export default  class Map extends Component {
             data:[],
             center:{
                 lng:30.0,
-                lat:30.0
+                lat:32.0
             }
         }
     }
@@ -60,11 +60,19 @@ export default  class Map extends Component {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            
+            <Marker  position={position}>
+                <Popup>
+                <p>Example Shop</p>
+                
+                </Popup>
+            </Marker>
             {this.state.data.map(shop => (
             <Marker key={shop.id} position={[shop.lng, shop.lat]}>
                 <Popup>
-                {shop.title} <br /> {shop.description}
+                <p><b>title:</b> {shop.title}</p>
+                <p><b>description:</b> {shop.description}</p>
+                <p><b>lng:</b> {shop.lng}</p>
+                <p><b>lat:</b> {shop.lat}</p>
                 </Popup>
             </Marker>
             ))}
