@@ -27,8 +27,12 @@ $ cd Cartologic_task
 
 Run this App using Docker: 
 ```sh
+docker-compose exec api python3 manage.py makemigrations
+docker-compose exec api python3 manage.py migrate --noinput
 docker-compose up -d
 or 
+make migrations
+make migrate
 make up
 ```
 And navigate to `localhost:8000/`.
